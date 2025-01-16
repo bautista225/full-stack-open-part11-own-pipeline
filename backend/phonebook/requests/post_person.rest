@@ -1,0 +1,30 @@
+# Petición vacía
+POST http://localhost:3001/api/persons
+
+###
+# Petición sin nombre
+POST http://localhost:3001/api/persons/ HTTP/1.1
+Content-type: application/json
+
+{
+    "number": "123-456-789"
+}
+
+###
+# Petición sin número
+POST http://localhost:3001/api/persons/ HTTP/1.1
+Content-type: application/json
+
+{
+    "name": "Kelsier"
+}
+
+###
+# Petición completa
+POST http://localhost:3001/api/persons/ HTTP/1.1
+Content-type: application/json
+
+{
+    "name": "Kelsier",
+    "number": "123-456-789"
+}

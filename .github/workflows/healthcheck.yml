@@ -1,0 +1,20 @@
+name: Health Check Workflow
+
+on:
+  push:
+    branches:
+      - main
+    #schedule:
+      #- cron: "0 0 * * *"   # Executes every day at midnight UTC
+
+jobs:
+  health_check:
+    name: Health Check
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Test Service
+        uses: jtalk/url-health-check-action@v4
+        with:
+          url: https://phonebook-githubactions.onrender.com/
+          max-attempts: 3
+          retry-delay: 10s
